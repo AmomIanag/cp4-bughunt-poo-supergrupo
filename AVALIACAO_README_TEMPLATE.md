@@ -18,7 +18,7 @@
 | Campo | |
 |---|---|
 | **Total de bugs corrigidos** | 12 / 12 |
-| **Total de ajustes de Clean Code** | 5 / 6 |
+| **Total de ajustes de Clean Code** | 6 / 6 |
 
 ---
 
@@ -51,7 +51,7 @@
 | clean03 |ConteudoController.java. |Dead Code. Existia um método antigo de cálculo de desconto que não era utilizado por nenhuma parte da aplicação. |O método calcularDescontoAntigo() foi removido. |
 | clean04 |ConteudoController.java. |Código comentado e TODO obsoleto. Havia um bloco de lógica de cupons comentado no arquivo, mesmo não fazendo parte do comportamento atual da aplicação. |O bloco de código comentado relacionado a cupons foi removido. |
 | clean05 |Usuario.java. |Comentário incorreto e redundante. O comentário afirmava que o método adicionava créditos, enquanto a implementação realizava um débito. |O comentário incorreto foi removido, mantendo apenas o código e o nome do método, que já deixam clara a intenção da operação. |
-| clean06 | | | |
+| clean06 |Usuario.java, no método alugar(). |Separação de responsabilidades. O método responsável pela regra de aluguel também realizava impressão de recibo diretamente no console. |O bloco de System.out.println responsável pela impressão do recibo foi removido do método alugar(). |
 
 ---
 
