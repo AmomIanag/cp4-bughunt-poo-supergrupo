@@ -17,7 +17,7 @@
 
 | Campo | |
 |---|---|
-| **Total de bugs corrigidos** | ___ / 12 |
+| **Total de bugs corrigidos** | 5 / 12 |
 | **Total de ajustes de Clean Code** | ___ / 6 |
 
 ---
@@ -33,7 +33,7 @@
 | bug02 |A busca por categoria não retornava corretamente os conteúdos cadastrados. |O controller comparava Strings usando ==, que compara referências de objetos, além de fazer a filtragem manualmente após buscar todos os conteúdos. | Substituí a lógica manual pelo método findByCategoria do ConteudoRepository.|Comparação de Strings em Java / Spring Data JPA / separação de responsabilidades. |
 | bug03 |O usuário era criado sem o nome preenchido corretamente |O construtor usava "nome = nome", causando sombreamento do parâmetro e deixando o atributo da classe sem valor |Alterado para "this.nome = nome" |Construtores, atributos de instância e palavra-chave this |
 | bug04 | Ao cadastrar um usuário, a API retornava erro 500 porque o banco tentava inserir NULL no campo id|O atributo id da entidade Usuario possuía apenas @Id e não tinha uma estratégia de geração automática, embora o cadastro criasse usuários sem informar um id | Foi adicionada a anotação @GeneratedValue(strategy = GenerationType.IDENTITY) ao campo id|JPA, chave primária e geração automática de identificadores |
-| bug05 | | | | |
+| bug05 |A verificação de créditos podia considerar incorretamente se o usuário possuía saldo suficiente para realizar o aluguel |O método temCreditosSuficientes comparava os valores na ordem errada, verificando "preco >= creditos" em vez de verificar se os créditos do usuário eram maiores ou iguais ao preço |A condição foi alterada para "this.creditos >= preco" |Regra de negócio, operadores relacionais e encapsulamento |
 | bug06 | | | | |
 | bug07 | | | | |
 | bug08 | | | | |
