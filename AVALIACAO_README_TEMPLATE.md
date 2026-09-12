@@ -17,7 +17,7 @@
 
 | Campo | |
 |---|---|
-| **Total de bugs corrigidos** | 6 / 12 |
+| **Total de bugs corrigidos** | 7 / 12 |
 | **Total de ajustes de Clean Code** | ___ / 6 |
 
 ---
@@ -35,7 +35,7 @@
 | bug04 | Ao cadastrar um usuário, a API retornava erro 500 porque o banco tentava inserir NULL no campo id|O atributo id da entidade Usuario possuía apenas @Id e não tinha uma estratégia de geração automática, embora o cadastro criasse usuários sem informar um id | Foi adicionada a anotação @GeneratedValue(strategy = GenerationType.IDENTITY) ao campo id|JPA, chave primária e geração automática de identificadores |
 | bug05 |A verificação de créditos podia considerar incorretamente se o usuário possuía saldo suficiente para realizar o aluguel |O método temCreditosSuficientes comparava os valores na ordem errada, verificando "preco >= creditos" em vez de verificar se os créditos do usuário eram maiores ou iguais ao preço |A condição foi alterada para "this.creditos >= preco" |Regra de negócio, operadores relacionais e encapsulamento |
 | bug06 |Um conteúdo marcado como indisponível podia ser processado novamente para aluguel. | O método Usuario.alugar não verificava o atributo disponivel do conteúdo antes de executar as demais regras do aluguel|Foi adicionada uma validação que lança ConteudoIndisponivelException quando o conteúdo não está disponível |Regra de negócio, exceções customizadas e encapsulamento |
-| bug07 | | | | |
+| bug07 |O preço promocional de filmes ficava 20% mais caro em vez de receber desconto. |O método aplicarPromocao multiplicava o preço por 1.2, acrescentando 20% ao valor. |O multiplicador foi alterado para 0.8, aplicando corretamente 20% de desconto |Interface, sobrescrita de método e regra de negócio. |
 | bug08 | | | | |
 | bug09 | | | | |
 | bug10 | | | | |
