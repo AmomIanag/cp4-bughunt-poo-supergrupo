@@ -51,7 +51,7 @@ public class ConteudoController {
     // POST /api/conteudos/filme - cadastra um filme (cria nova instância sem o id vindo do cliente)
     @PostMapping("/filme")
     public ResponseEntity<Filme> cadastrarFilme(@RequestBody Filme filme) {
-        Filme novo = new Filme(filme.getTitulo(), filme.getCategoria(), filme.duracaoMinutos,
+        Filme novo = new Filme(filme.getTitulo(), filme.getCategoria(), filme.getDuracaoMinutos(),
                 filme.getClassificacaoEtaria(), filme.isDisponivel(), filme.isEstreia());
         return ResponseEntity.status(201).body(conteudoRepository.save(novo));
     }
@@ -62,7 +62,7 @@ public class ConteudoController {
         Serie nova = new Serie(
                 serie.getTitulo(),
                 serie.getCategoria(),
-                serie.duracaoMinutos,
+                serie.getDuracaoMinutos(),
                 serie.getClassificacaoEtaria(),
                 serie.isDisponivel(),
                 serie.getNumeroTemporadas()
@@ -74,7 +74,7 @@ public class ConteudoController {
     @PostMapping("/documentario")
     public ResponseEntity<Documentario> cadastrarDocumentario(@RequestBody Documentario documentario) {
         Documentario novo = new Documentario(documentario.getTitulo(), documentario.getCategoria(),
-                documentario.duracaoMinutos, documentario.getClassificacaoEtaria(),
+                documentario.getDuracaoMinutos(), documentario.getClassificacaoEtaria(),
                 documentario.isDisponivel(), documentario.getTema());
         return ResponseEntity.status(201).body(conteudoRepository.save(novo));
     }

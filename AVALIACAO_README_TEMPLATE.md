@@ -18,7 +18,7 @@
 | Campo | |
 |---|---|
 | **Total de bugs corrigidos** | 12 / 12 |
-| **Total de ajustes de Clean Code** | ___ / 6 |
+| **Total de ajustes de Clean Code** | 1 / 6 |
 
 ---
 
@@ -46,7 +46,7 @@
 
 | # | Onde estava | Qual princípio/boas práticas era violado | O que eu mudei |
 |---|---|---|---|
-| clean01 | | | |
+| clean01 |Conteudo.java e ConteudoController.java. |Encapsulamento. O atributo duracaoMinutos estava público e era acessado diretamente pelo controller. |O atributo duracaoMinutos passou a ser private e os acessos externos foram substituídos pelo método getDuracaoMinutos(). |
 | clean02 | | | |
 | clean03 | | | |
 | clean04 | | | |
