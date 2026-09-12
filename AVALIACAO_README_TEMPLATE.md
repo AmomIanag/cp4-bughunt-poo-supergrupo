@@ -17,7 +17,7 @@
 
 | Campo | |
 |---|---|
-| **Total de bugs corrigidos** | 8 / 12 |
+| **Total de bugs corrigidos** | 9 / 12 |
 | **Total de ajustes de Clean Code** | ___ / 6 |
 
 ---
@@ -37,7 +37,7 @@
 | bug06 |Um conteúdo marcado como indisponível podia ser processado novamente para aluguel. | O método Usuario.alugar não verificava o atributo disponivel do conteúdo antes de executar as demais regras do aluguel|Foi adicionada uma validação que lança ConteudoIndisponivelException quando o conteúdo não está disponível |Regra de negócio, exceções customizadas e encapsulamento |
 | bug07 |O preço promocional de filmes ficava 20% mais caro em vez de receber desconto. |O método aplicarPromocao multiplicava o preço por 1.2, acrescentando 20% ao valor. |O multiplicador foi alterado para 0.8, aplicando corretamente 20% de desconto |Interface, sobrescrita de método e regra de negócio. |
 | bug08 |Ao cadastrar uma série, apenas o número de temporadas era salvo corretamente. Os campos herdados de Conteudo, como título, categoria, duração e classificação etária, ficavam vazios ou zerados, e o conteúdo era salvo como indisponível. |O construtor de Serie inicializava apenas o atributo numeroTemporadas e não chamava o construtor da classe pai Conteudo. Além disso, o ConteudoController não repassava o valor do campo disponivel para o construtor da série |O construtor de Serie foi alterado para receber todos os dados necessários e chamar super(...) para inicializar os atributos herdados. O ConteudoController também passou a repassar o campo disponivel |Herança, construtores, uso de super e inicialização de atributos herdados |
-| bug09 | | | | |
+| bug09 |O preço de aluguel de séries não considerava a quantidade de temporadas. O sistema utilizava o preço padrão herdado de Conteudo |A classe Serie declarava o método calcularPrecoAluguel(double desconto), criando uma sobrecarga em vez de sobrescrever calcularPrecoAluguel() da classe Conteudo. |O parâmetro foi removido e o método passou a sobrescrever corretamente calcularPrecoAluguel(), com a anotação @Override. |Herança, polimorfismo, sobrescrita de métodos e diferença entre overload e override. |
 | bug10 | | | | |
 | bug11 | | | | |
 | bug12 | | | | |
