@@ -30,7 +30,7 @@
 | # | Sintoma observado (o que fiz/vi) | Causa raiz (arquivo e linha aproximada) | Correção aplicada | Conceito da disciplina |
 |---|---|---|---|---|
 | bug01 | A busca do conteudo  que não existia nao dava return na mensagem de erro que era pra acontecer no contrato|O buscarPorId pegava Exception de forma genérica e ignorava a excecao ConteudoNaoEcontradoException, retornando o null |Removi o try/catch que nao precisavam, fazendo que o ConteudoNaoEncontradoException fosse tratado pelo GlobalException Handler|Tratamento de exceções / propagação de exceções / tratamento centralizado com @RestControllerAdvice. |
-| bug02 | | | | |
+| bug02 |A busca por categoria não retornava corretamente os conteúdos cadastrados. |O controller comparava Strings usando ==, que compara referências de objetos, além de fazer a filtragem manualmente após buscar todos os conteúdos. | Substituí a lógica manual pelo método findByCategoria do ConteudoRepository.|Comparação de Strings em Java / Spring Data JPA / separação de responsabilidades. |
 | bug03 | | | | |
 | bug04 | | | | |
 | bug05 | | | | |
