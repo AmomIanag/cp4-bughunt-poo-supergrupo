@@ -9,10 +9,11 @@
 
 | Integrante | RM | Turma |
 |---|---|---|
-| | | |
-| | | |
-| | | |
-| | | |
+|Amom Ianaguivara Brito | 565718| 2CCPH|
+| Victor Chen| 565363|2CCPH |
+| Fernando Antônio|562549 | 2CCPH|
+|Vinícius Mello |565257 | 2CCPH|
+|Gabriel Ramos |564074 | 2CCPH|
 
 | Campo | |
 |---|---|
@@ -28,7 +29,7 @@
 
 | # | Sintoma observado (o que fiz/vi) | Causa raiz (arquivo e linha aproximada) | Correção aplicada | Conceito da disciplina |
 |---|---|---|---|---|
-| bug01 | | | | |
+| bug01 | A busca do conteudo  que não existia nao dava return na mensagem de erro que era pra acontecer no contrato|O buscarPorId pegava Exception de forma genérica e ignorava a excecao ConteudoNaoEcontradoException, retornando o null |Removi o try/catch que nao precisavam, fazendo que o ConteudoNaoEncontradoException fosse tratado pelo GlobalException Handler|Tratamento de exceções / propagação de exceções / tratamento centralizado com @RestControllerAdvice. |
 | bug02 | | | | |
 | bug03 | | | | |
 | bug04 | | | | |
