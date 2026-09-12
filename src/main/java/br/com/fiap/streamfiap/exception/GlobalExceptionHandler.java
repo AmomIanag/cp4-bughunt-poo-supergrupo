@@ -16,6 +16,14 @@ public class GlobalExceptionHandler {
                 .body(Map.of("erro", e.getMessage()));
     }
 
+    @ExceptionHandler(ClassificacaoIndicativaException.class)
+    public ResponseEntity<Map<String, String>> handleClassificacaoIndicativa(
+            ClassificacaoIndicativaException e) {
+
+        return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(Map.of("erro", e.getMessage()));
+    }
+
     @ExceptionHandler(CreditosInsuficientesException.class)
     public ResponseEntity<Map<String, String>> handleCreditosInsuficientes(CreditosInsuficientesException e) {
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY)
