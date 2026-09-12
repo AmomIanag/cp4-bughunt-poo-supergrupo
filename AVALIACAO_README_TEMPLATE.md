@@ -17,7 +17,7 @@
 
 | Campo | |
 |---|---|
-| **Total de bugs corrigidos** | 10 / 12 |
+| **Total de bugs corrigidos** | 11 / 12 |
 | **Total de ajustes de Clean Code** | ___ / 6 |
 
 ---
@@ -39,7 +39,7 @@
 | bug08 |Ao cadastrar uma série, apenas o número de temporadas era salvo corretamente. Os campos herdados de Conteudo, como título, categoria, duração e classificação etária, ficavam vazios ou zerados, e o conteúdo era salvo como indisponível. |O construtor de Serie inicializava apenas o atributo numeroTemporadas e não chamava o construtor da classe pai Conteudo. Além disso, o ConteudoController não repassava o valor do campo disponivel para o construtor da série |O construtor de Serie foi alterado para receber todos os dados necessários e chamar super(...) para inicializar os atributos herdados. O ConteudoController também passou a repassar o campo disponivel |Herança, construtores, uso de super e inicialização de atributos herdados |
 | bug09 |O preço de aluguel de séries não considerava a quantidade de temporadas. O sistema utilizava o preço padrão herdado de Conteudo |A classe Serie declarava o método calcularPrecoAluguel(double desconto), criando uma sobrecarga em vez de sobrescrever calcularPrecoAluguel() da classe Conteudo. |O parâmetro foi removido e o método passou a sobrescrever corretamente calcularPrecoAluguel(), com a anotação @Override. |Herança, polimorfismo, sobrescrita de métodos e diferença entre overload e override. |
 | bug10 |Documentários eram cobrados com o preço padrão de R$ 9,90, mesmo que o contrato determine aluguel gratuito. |A classe Documentario não sobrescrevia o método calcularPrecoAluguel(), herdando o valor padrão definido em Conteudo. |Foi sobrescrito calcularPrecoAluguel() em Documentario para retornar 0.0. |Herança, polimorfismo e sobrescrita de métodos. |
-| bug11 | | | | |
+| bug11 |Era possível cadastrar conteúdos com duração igual ou menor que zero, contrariando o contrato da API. |A classe Conteudo não validava o valor de duracaoMinutos antes de criar e persistir o objeto. |Foi adicionada uma validação no construtor de Conteudo que lança IllegalArgumentException quando duracaoMinutos <= 0. O GlobalExceptionHandler também passou a tratar essa exceção, retornando HTTP 400 com uma mensagem clara |Encapsulamento de regras de negócio, validação de dados e tratamento global de exceções. |
 | bug12 | | | | |
 
 ## Parte 2 — Ajustes de Clean Code

@@ -21,7 +21,13 @@ public abstract class Conteudo {
     protected Conteudo() {
     }
 
-    protected Conteudo(String titulo, String categoria, int duracaoMinutos, int classificacaoEtaria, boolean disponivel) {
+    protected Conteudo(String titulo, String categoria, int duracaoMinutos,
+                       int classificacaoEtaria, boolean disponivel) {
+
+        if (duracaoMinutos <= 0) {
+            throw new IllegalArgumentException("A duração deve ser maior que zero");
+        }
+
         this.titulo = titulo;
         this.categoria = categoria;
         this.duracaoMinutos = duracaoMinutos;
