@@ -18,7 +18,7 @@
 | Campo | |
 |---|---|
 | **Total de bugs corrigidos** | 12 / 12 |
-| **Total de ajustes de Clean Code** | 3 / 6 |
+| **Total de ajustes de Clean Code** | 4 / 6 |
 
 ---
 
@@ -49,7 +49,7 @@
 | clean01 |Conteudo.java e ConteudoController.java. |Encapsulamento. O atributo duracaoMinutos estava público e era acessado diretamente pelo controller. |O atributo duracaoMinutos passou a ser private e os acessos externos foram substituídos pelo método getDuracaoMinutos(). |
 | clean02 |Nos controllers que utilizavam @Autowired diretamente nos atributos. |As dependências eram injetadas diretamente nos campos, deixando-as menos explícitas e impedindo que fossem declaradas como final. |A injeção por atributo foi substituída por injeção via construtor. Os repositórios passaram a ser atributos final e o @Autowired deixou de ser necessário. |
 | clean03 |ConteudoController.java. |Dead Code. Existia um método antigo de cálculo de desconto que não era utilizado por nenhuma parte da aplicação. |O método calcularDescontoAntigo() foi removido. |
-| clean04 | | | |
+| clean04 |ConteudoController.java. |Código comentado e TODO obsoleto. Havia um bloco de lógica de cupons comentado no arquivo, mesmo não fazendo parte do comportamento atual da aplicação. |O bloco de código comentado relacionado a cupons foi removido. |
 | clean05 | | | |
 | clean06 | | | |
 
